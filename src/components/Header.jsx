@@ -16,7 +16,7 @@ export const Header = () => {
       p="3"
     >
       <Link to="/">
-        <Heading fontSize="md">iSchool Management</Heading>
+        <Heading fontSize="md">School Management</Heading>
       </Link>
       <Flex flexGrow="1" justifyContent="space-evenly">
         <NavLink style={activeLink} to="/">
