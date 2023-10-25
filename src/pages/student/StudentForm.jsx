@@ -31,7 +31,8 @@ export const StudentForm = () => {
     navigate("/students");
   };
 
-  const handleAddStudent = (studentData) => {
+  const handleAddStudent = (e, studentData) => {
+    e.preventDefault();
     dispatch(addStudent(studentData));
     navigate("/students");
   };
@@ -49,37 +50,46 @@ export const StudentForm = () => {
         flexDirection="column"
         justifyContent="space-evenly"
         alignItems="center"
-        onSubmit={(e) => handleUpdate(e)}
+        onSubmit={(e) => {
+          location === "/student/edit"
+            ? handleUpdate(e)
+            : handleAddStudent(e, student);
+        }}
       >
         <Input
           onChange={(e) => setStudent({ ...student, name: e.target.value })}
           type="text"
           placeholder="Enter Student name"
           defaultValue={name}
+          required
         />
         <Input
           onChange={(e) => setStudent({ ...student, age: e.target.value })}
           type="number"
           placeholder="age"
           defaultValue={age}
+          required
         />
         <Input
           onChange={(e) => setStudent({ ...student, gender: e.target.value })}
           type="text"
           placeholder="gender"
           defaultValue={gender}
+          required
         />
         <Input
           onChange={(e) => setStudent({ ...student, grade: e.target.value })}
           type="number"
           placeholder="grade"
           defaultValue={grade}
+          required
         />
         <Input
           onChange={(e) => setStudent({ ...student, marks: e.target.value })}
           type="number"
           placeholder="marks"
           defaultValue={marks}
+          required
         />
         <Input
           onChange={(e) =>
@@ -88,22 +98,12 @@ export const StudentForm = () => {
           type="number"
           placeholder="attendance"
           defaultValue={attendance}
+          required
         />
-        {location === "/student/edit" ? (
-          <Button type="submit" m="1rem" colorScheme="teal" color="white">
-            Update
-          </Button>
-        ) : (
-          <Button
-            onClick={() => handleAddStudent(student)}
-            bgColor="teal.300"
-            px="2rem"
-            py="1rem"
-            m="1rem"
-          >
-            Add
-          </Button>
-        )}
+        
+        <Button type="submit" m="1rem" colorScheme="teal" color="white">
+          {location === "/student/edit" ? "Update" : "Add"}
+        </Button>
       </Flex>
     </Flex>
   );

@@ -20,7 +20,8 @@ export const TeacherForm = () => {
     navigate("/teachers");
   };
 
-  const handleAddTeacher = (teacherData) => {
+  const handleAddTeacher = (e, teacherData) => {
+    e.preventDefault();
     dispatch(addTeacher(teacherData));
     navigate("/teachers");
   };
@@ -38,19 +39,25 @@ export const TeacherForm = () => {
         flexDirection="column"
         justifyContent="space-evenly"
         alignItems="center"
-        onSubmit={(e) => handleUpdate(e)}
+        onSubmit={(e) => {
+          location === "/teacher/edit"
+            ? handleUpdate(e)
+            : handleAddTeacher(e, teacher);
+        }}
       >
         <Input
           onChange={(e) => setTeacher({ ...teacher, name: e.target.value })}
           type="text"
           placeholder="Enter Teacher name"
           defaultValue={name}
+          required
         />
         <Input
           onChange={(e) => setTeacher({ ...teacher, subject: e.target.value })}
           type="text"
           placeholder="Enter Subject"
           defaultValue={subject}
+          required
         />
         <Input
           onChange={(e) =>
@@ -59,22 +66,12 @@ export const TeacherForm = () => {
           type="number"
           placeholder="Enter Contact Number"
           defaultValue={contactInfo}
+          required
         />
-        {location === "/teacher/edit" ? (
-          <Button type="submit" m="1rem" colorScheme="teal" color="white">
-            Update
-          </Button>
-        ) : (
-          <Button
-            onClick={() => handleAddTeacher(teacher)}
-            bgColor="teal.300"
-            px="2rem"
-            py="1rem"
-            m="1rem"
-          >
-            Add
-          </Button>
-        )}
+
+        <Button type="submit" m="1rem" colorScheme="teal" color="white">
+          {location === "/teacher/edit" ? "Update" : " Add"}
+        </Button>
       </Flex>
     </Flex>
   );
