@@ -1,4 +1,4 @@
-import { Flex, Button, Card, Link } from "@chakra-ui/react";
+import { Flex, Button, Card, Link, Heading } from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 export const Students = () => {
   const students = useSelector((state) => state.students.students);
   const navigate = useNavigate();
- 
+
   return (
     <Flex flexDirection="column" justifyContent="center" alignItems="center">
       <Button
@@ -18,7 +18,11 @@ export const Students = () => {
       >
         Add New Student
       </Button>
-
+      {!students.length && (
+        <Heading size="sm" m="1rem">
+          No students found
+        </Heading>
+      )}
       <Flex flexWrap="wrap" justifyContent="space-evenly">
         {students.map(({ _id, name, gender, grade }) => (
           <Card key={_id} m="1rem" p="1rem">

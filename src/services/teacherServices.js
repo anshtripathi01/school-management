@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 export const fetchTeachers = createAsyncThunk(
   "teachers/fetchStudents",
@@ -29,7 +30,7 @@ export const addTeacher = createAsyncThunk(
         }
       );
       const teacher = await response.json();
-      alert("Teacher Added Successfully");
+      toast.success("Teacher Added Successfully", { autoClose: 1000 });
       return teacher;
     } catch (error) {
       console.log("error while adding");
@@ -53,7 +54,7 @@ export const editTeacher = createAsyncThunk(
         }
       );
       const updatedTeacher = await response.json();
-      alert("Teacher details updated");
+      toast.success("Teacher details updated", { autoClose: 1000 });
       return updatedTeacher;
     } catch (error) {
       console.log("error while editing");

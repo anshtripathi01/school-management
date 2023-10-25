@@ -5,14 +5,14 @@ import { useDispatch } from "react-redux";
 import { addTeacher, editTeacher } from "../../services/teacherServices";
 
 export const TeacherForm = () => {
-  const { _id: id, name, subject , contactInfo} = useLocation()?.state ?? "";
+  const { _id: id, name, subject, contactInfo } = useLocation()?.state ?? "";
   const navigate = useNavigate();
   const location = useLocation()?.pathname;
   const dispatch = useDispatch();
   const [teacher, setTeacher] = useState({
     name,
     subject,
-    contactInfo
+    contactInfo,
   });
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -27,7 +27,9 @@ export const TeacherForm = () => {
   return (
     <Flex flexDirection="column" justifyContent="center" alignItems="center">
       <Heading size="md" m="1rem">
-        {location === "/teacher/edit" ? "Update Teacher Details" : "Fill Teacher Details"}
+        {location === "/teacher/edit"
+          ? "Update Teacher Details"
+          : "Fill Teacher Details"}
       </Heading>
       <Flex
         w="20rem"

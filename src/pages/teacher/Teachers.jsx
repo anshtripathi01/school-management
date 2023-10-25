@@ -1,4 +1,4 @@
-import { Button, Card, Flex, Link } from "@chakra-ui/react";
+import { Button, Card, Flex, Heading, Link } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
@@ -11,7 +11,7 @@ export const Teachers = () => {
   const navigate = useNavigate();
   useEffect(() => {
     dispatch(fetchTeachers());
-  }, [dispatch,teachers]);
+  }, [dispatch, teachers]);
 
   return (
     <Flex flexDirection="column" justifyContent="center" alignItems="center">
@@ -24,7 +24,11 @@ export const Teachers = () => {
       >
         Add New Teacher
       </Button>
-
+      {!teachers.length && (
+        <Heading size="sm" m="1rem">
+          No teachers found
+        </Heading>
+      )}
       <Flex flexWrap="wrap" justifyContent="space-evenly">
         {teachers.map(({ _id, name, subject }) => (
           <Card key={_id} m="1rem" p="1rem">
