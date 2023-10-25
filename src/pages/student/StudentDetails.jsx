@@ -48,7 +48,7 @@ export const StudentDetails = () => {
           <Heading size="md" m={1}>
             {name}
           </Heading>
-          <Heading size="xs">Grade : {age} old</Heading>
+          <Heading size="xs">Age : {age}</Heading>
           <Heading size="xs">Gender : {gender}</Heading>
           <Heading size="xs">Grade : {grade}th</Heading>
           <Heading size="xs">Marks : {marks}</Heading>
