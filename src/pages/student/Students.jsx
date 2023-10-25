@@ -1,17 +1,12 @@
 import { Flex, Button, Card, Link } from "@chakra-ui/react";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchStudents } from "../../services/studentServices";
+import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export const Students = () => {
   const students = useSelector((state) => state.students.students);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  useEffect(() => {
-    dispatch(fetchStudents());
-  }, [dispatch, students]);
-
+ 
   return (
     <Flex flexDirection="column" justifyContent="center" alignItems="center">
       <Button

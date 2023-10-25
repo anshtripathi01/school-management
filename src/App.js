@@ -4,13 +4,22 @@ import { SchoolStatistics } from "./pages/SchoolStatistics";
 import { Header } from "./components/Header";
 import { Students } from "./pages/student/Students";
 import { Teachers } from "./pages/teacher/Teachers";
-import ClassView from "./pages/ClassView";
+import {ClassView} from "./pages/ClassView"
 import { StudentDetails } from "./pages/student/StudentDetails";
 import { TeacherDetails } from "./pages/teacher/TeacherDetails";
 import { StudentForm } from "./pages/student/StudentForm";
 import { TeacherForm } from "./pages/teacher/TeacherForm";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchStudents } from "./services/studentServices";
 
 function App() {
+  const dispatch = useDispatch()
+  const students = useSelector((state)=>state.students.students)
+  useEffect(() => {
+    dispatch(fetchStudents());
+  }, [dispatch, students]);
+
   return (
     <Flex flexDirection="column">
       <Header />
