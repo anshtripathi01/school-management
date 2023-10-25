@@ -1,7 +1,7 @@
 import { Button, Flex, Heading, Input } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
-import { addStudent, editStudent } from "../services/studentServices";
+import { addStudent, editStudent } from "../../services/studentServices";
 import { useDispatch } from "react-redux";
 
 export const StudentForm = () => {

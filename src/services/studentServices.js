@@ -58,7 +58,7 @@ export const fetchStudents = createAsyncThunk(
         return updatedStudent
         
       } catch (error) {
-        console.log("error while adding");
+        console.log("error while editing");
       }
     }
   );

@@ -7,7 +7,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const StudentDetails = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const students = useSelector(state=>state.students)
+    const students = useSelector(state=>state.students.students)
     const {studentId} = useParams()
     const {_id, name, age, gender, grade, marks, attendance} = students.find(({_id})=>_id===studentId)
 

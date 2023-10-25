@@ -17,7 +17,7 @@ const studentSlice = createSlice({
       state.students = [...state.students, action.payload];
     });
     builder.addCase(editStudent.fulfilled, (state,action)=>{
-      
+      return state
     })
   },
 });

@@ -1,11 +1,11 @@
 import { Flex, Button, Card, Link } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchStudents } from "../services/studentServices";
+import { fetchStudents } from "../../services/studentServices";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export const Students = () => {
-  const students = useSelector((state) => state.students);
+  const students = useSelector((state) => state.students.students);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
