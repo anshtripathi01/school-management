@@ -27,11 +27,11 @@ export const TeacherForm = () => {
   return (
     <Flex flexDirection="column" justifyContent="center" alignItems="center">
       <Heading size="md" m="1rem">
-        {location === "/teacher/edit" ? "Edit Teacher" : "Add New Teacher"}
+        {location === "/teacher/edit" ? "Update Teacher Details" : "Fill Teacher Details"}
       </Heading>
       <Flex
         w="20rem"
-        h="30rem"
+        h="20rem"
         as="form"
         flexDirection="column"
         justifyContent="space-evenly"

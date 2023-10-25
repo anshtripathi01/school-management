@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import { Route, Routes } from "react-router";
-import { SchoolStatistics } from "./pages/SchoolStatistics";
+import { SchoolWideStatisticsCard } from "./pages/SchoolStatistics";
 import { Header } from "./components/Header";
 import { Students } from "./pages/student/Students";
 import { Teachers } from "./pages/teacher/Teachers";
@@ -24,7 +24,7 @@ function App() {
     <Flex flexDirection="column">
       <Header />
       <Routes>
-        <Route path="/" element={<SchoolStatistics />} />
+        <Route path="/" element={<SchoolWideStatisticsCard />} />
         <Route path="/students" element={<Students />} />
         <Route path="/student/add" element={<StudentForm />} />
         <Route path="/student/edit" element={<StudentForm />} />

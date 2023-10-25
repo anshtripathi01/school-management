@@ -38,7 +38,7 @@ export const StudentForm = () => {
   return (
     <Flex flexDirection="column" justifyContent="center" alignItems="center">
       <Heading size="md" m="1rem">
-        {location === "/student/edit" ? "Edit student" : "Add New Student"}
+        {location === "/student/edit" ? "Update Student Details" : "Fill Student Details"}
       </Heading>
       <Flex
         w="20rem"
