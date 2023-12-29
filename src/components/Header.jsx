@@ -31,6 +31,9 @@ export const Header = () => {
         <NavLink style={activeLink} to="/class">
           Class View
         </NavLink>
+        <NavLink style={activeLink} to="https://github.com/anshtripathi01/school-management">
+              <Button variant="solid" colorScheme='teal'>Github</Button>
+        </NavLink>
       </Flex>
     </Flex>
   );
